@@ -78,6 +78,13 @@ NS_SWIFT_NAME(AnalyticsConfiguration)
 @property (nonatomic, assign) BOOL enableAdvertisingTracking;
 
 /**
+ * If necessary, your project can override the device identifier used to track events.
+ * In iOS 14, access to [[UIDevice current] identifierForVendor] requires opt-in from users
+ * to allow advertising tracking.
+ */
+@property (nonatomic, copy, nullable) NSUUID *deviceIdentifierOverride;
+
+/**
  * The number of queued events that the analytics client should flush at. Setting this to `1` will not queue any events and will use more battery. `20` by default.
  */
 @property (nonatomic, assign) NSUInteger flushAt;

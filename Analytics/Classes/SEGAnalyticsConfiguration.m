@@ -92,7 +92,12 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%p:%@, %@>", self, self.class, [self dictionaryWithValuesForKeys:@[ @"writeKey", @"shouldUseLocationServices", @"flushAt" ]]];
+    return [NSString stringWithFormat:@"<%p:%@, %@>", self, self.class, [self dictionaryWithValuesForKeys:@[
+        @"writeKey",
+        @"shouldUseLocationServices",
+        @"flushAt",
+        @"deviceIdentifierOverride",
+    ]]];
 }
 
 // MARK: remove these when `middlewares` property is removed.

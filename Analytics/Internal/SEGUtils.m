@@ -196,7 +196,12 @@ NSDictionary *mobileSpecifications(SEGAnalyticsConfiguration *configuration, NSS
         dict[@"name"] = [device model];
 #endif
         dict[@"model"] = getDeviceModel();
-        dict[@"id"] = [[device identifierForVendor] UUIDString];
+
+        NSString *deviceIdentifier = [configuration.deviceIdentifierOverride UUIDString] ?:
+            [[device identifierForVendor] UUIDString];
+
+        dict[@"id"] = deviceIdentifier;
+
         if (getAdTrackingEnabled(configuration)) {
             NSString *idfa = configuration.adSupportBlock();
             // This isn't ideal.  We're doing this because we can't actually check if IDFA is enabled on
